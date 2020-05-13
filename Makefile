@@ -6,13 +6,13 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 08:44:29 by rbakker       #+#    #+#                  #
-#    Updated: 2020/05/12 13:43:21 by roybakker     ########   odam.nl          #
+#    Updated: 2020/05/13 14:05:09 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =			libasm.a
 
-SOURCES	=		ft_strlen.s ft_strcpy.s ft_strcmp.s
+SOURCES	=		ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s
 OBJECTS_S =		${SOURCES:%.s=%.o}
 
 FLAGS =			-Wall -Wextra -Werror

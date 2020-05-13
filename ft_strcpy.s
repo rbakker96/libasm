@@ -6,12 +6,12 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:20 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/12 20:23:30 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/13 14:47:27 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ; ------------------------------------------------------------------------------
-; char	*strcpy(char * dst, const char * src);
+; char	*strcpy(char *dst, const char *src);
 ;
 ; The stpcpy() functions copy the string src to dst (including the terminating
 ; `\0' character.)
@@ -24,6 +24,7 @@
 ; ------------------------------------------------------------------------------
 
 global _ft_strcpy
+extern _ft_strlen
 
 _ft_strcpy:
 			mov		rcx,0						;set ofset to zero

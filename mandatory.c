@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/06 14:47:09 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/05/12 20:15:22 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/05/13 15:02:25 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int		ft_strlen(char *string);
 char	*ft_strcpy(char *dst, char *src);
 int		ft_strcmp(const char *s1, const char *s2);
-char 	*ft_strdup(const char *s1);
+char	*ft_strdup(const char *s1);
 
 void	ft_strlen_test(void)
 {
@@ -70,6 +70,18 @@ void	ft_strcmp_test(void)
 	printf("Test 4 - ft_strcmp %d\n", ft_strcmp(s3, s4));
 }
 
+void	ft_strdup_test(void)
+{
+	printf("Test 1 - strdup %s\n", strdup("test1"));
+	printf("Test 1 - ft_strdup %s\n", ft_strdup("test1"));
+	printf("\n\n");
+	printf("Test 2 - strdup %s\n", strdup("test2 met spatie"));
+	printf("Test 2 - ft_strdup %s\n", ft_strdup("test2 met spatie"));
+	printf("\n\n");
+	printf("Test 3 - strdup %s\n", strdup(""));
+	printf("Test 3 - ft_strdup %s\n", ft_strdup(""));
+}
+
 int		main(void)
 {
 	printf("*********** TEST FT_STRLEN ***********\n");
@@ -80,4 +92,7 @@ int		main(void)
 	printf("\n\n\n\n");
 	printf("*********** TEST FT_STRCMP ***********\n");
 	ft_strcmp_test();
+	printf("\n\n\n\n");
+	printf("*********** TEST FT_STRDUP ***********\n");
+	ft_strdup_test();
 }
