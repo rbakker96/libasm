@@ -6,7 +6,7 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:07 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/14 18:46:41 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/14 18:49:18 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -36,7 +36,9 @@ return:
 
 fail:
 			mov		rdx,rax
+			push	rdx
 			call	___error
-		;	mov		[rax],rdx
+			pop		rdx
+			mov		[rax],rdx
 			mov		rax,-1				;return -1 with error
 			ret

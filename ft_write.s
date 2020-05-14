@@ -6,7 +6,7 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:35 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/14 16:29:22 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/14 18:52:16 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -24,6 +24,7 @@
 ; ------------------------------------------------------------------------------
 
 global _ft_write
+extern ___error
 
 _ft_write:
 			mov		rax,0x2000004			;put syscall number in register
@@ -34,5 +35,10 @@ return:
 			ret
 
 error:
+			mov		rdx,rax
+			push	rdx
+			call	___error
+			pop		rdx
+			mov		[rax],rdx
 			mov		rax,-1				;return -1 with error
 			ret
