@@ -6,7 +6,7 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:25 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/13 15:32:50 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/14 11:32:56 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -20,9 +20,9 @@
 ; If insufficient memory is available, NULL is returned.
 ;
 ; REGISTER	   -	 VARIABLE
-;	rdi					dst
-;	rsi					src
+;	rdi					s1 (entry value)
 ;
+; NOTICE - rdi & rsi are used for multiple different sub-functions
 ; ------------------------------------------------------------------------------
 
 global _ft_strdup
@@ -41,15 +41,15 @@ memory:
 			call	_malloc
 			pop		rsi					;rdi becomes s1 (src string)
 			mov		rdi,rax				;rdi becomes s2 (dst string)
-			cmp		rdi,0
+			cmp		rdi,0				;check for malloc fail
 			jz		error
 
 copy:
 			call	_ft_strcpy
 
 return:
-			ret
+			ret							;return string in case of succes
 
 error:
-			mov		rax,0
+			mov		rax,0				;return zero in case of failure
 			ret

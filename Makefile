@@ -6,13 +6,14 @@
 #    By: rbakker <rbakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/29 08:44:29 by rbakker       #+#    #+#                  #
-#    Updated: 2020/05/13 14:05:09 by roybakker     ########   odam.nl          #
+#    Updated: 2020/05/14 13:45:52 by roybakker     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =			libasm.a
 
-SOURCES	=		ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s
+SOURCES	=		ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s ft_read.s \
+				ft_write.s
 OBJECTS_S =		${SOURCES:%.s=%.o}
 
 FLAGS =			-Wall -Wextra -Werror
@@ -38,8 +39,10 @@ $(NAME): $(OBJECTS_S)
 	@echo "$(GREEN)Succesful"
 
 mandatory: $(NAME)
+	@/bin/rm -f mandatory
 	@$(COMPILE_C) $(FLAGS) -L. -lasm mandatory.c -o mandatory
-	@./mandatory
+	@echo "$(GREEN)START TESTING MANDATORY PART OF LIBASM"
+	@./mandatory test.txt test2.txt
 
 bonus: $(OBJECTS_S) $(OBJECTS_B)
 	@echo "$(ORANGE)Creating library with bonus..."
