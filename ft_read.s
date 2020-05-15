@@ -6,7 +6,7 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:07 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/15 11:03:42 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/15 12:22:51 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -39,10 +39,10 @@ return:
 			ret
 
 fail:
-			mov		rdx,rax
+			mov		rdx,rax					;save errno
 			push	rdx
-			call	___error
+			call	___error				;retrieve addres of global errno
 			pop		rdx
-			mov		[rax],rdx
-			mov		rax,-1				;return -1 with error
+			mov		[rax],rdx				;save errno on retrieved addres
+			mov		rax,-1					;return -1 with function
 			ret
