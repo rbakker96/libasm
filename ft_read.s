@@ -6,15 +6,19 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:07 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/14 18:49:18 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/15 11:03:42 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ; ------------------------------------------------------------------------------
 ; ssize_t	read(int fildes, void *buf, size_t nbyte);
 ;
+; DESCRIPTION
 ; read() attempts to read nbyte bytes of data from the object referenced by
 ; the descriptor fildes into the buffer pointed to by buf.
+;
+; RETURN VALUE
+; The read function returns the nbyte bytes read.
 ;
 ; REGISTER	   -	 VARIABLE
 ;	rax					syscall-read = 0x2000003

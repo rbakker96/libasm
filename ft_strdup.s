@@ -6,18 +6,21 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:25 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/14 11:32:56 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/15 11:01:46 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ; ------------------------------------------------------------------------------
 ; char *strdup(const char *s1);
 ;
+; DESCRIPTION
 ; The strdup() function allocates sufficient memory for a copy of the
 ; string s1, does the copy, and returns a pointer to it.  The pointer may
 ; subsequently be used as an argument to the function free(3).
 ;
-; If insufficient memory is available, NULL is returned.
+; RETURN VALUE
+; Returns a pointer to the created string. If insufficient memory is available,
+; NULL is returned.
 ;
 ; REGISTER	   -	 VARIABLE
 ;	rdi					s1 (entry value)

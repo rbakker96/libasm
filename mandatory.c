@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/06 14:47:09 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/05/14 18:45:23 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/05/15 11:40:27 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <sys/uio.h>
 #include <unistd.h>
 #include <errno.h>
+
+extern int errno;
 
 int		ft_strlen(char *string);
 char	*ft_strcpy(char *dst, char *src);
@@ -62,7 +64,7 @@ void	ft_strcmp_test(void)
 
 	s1 = "z";
 	s2 = "a";
-	s3 = "\xff\xfe";
+	s3 = "\xff";
 	s4 = "\xff";
 	printf("Test 1 - strcmp %d\n", strcmp("test1", "test1"));
 	printf("Test 1 - ft_strcmp %d\n", ft_strcmp("test1", "test1"));
@@ -70,8 +72,8 @@ void	ft_strcmp_test(void)
 	printf("Test 2 - strcmp %d\n", strcmp(s1, s2));
 	printf("Test 2 - ft_strcmp %d\n", ft_strcmp(s1, s2));
 	printf("\n\n");
-	printf("Test 3 - strcmp %d\n", strcmp("\xff\xfe", "\xff"));
-	printf("Test 3 - ft_strcmp %d\n", ft_strcmp("\xff\xfe", "\xff"));
+	printf("Test 3 - strcmp %d\n", strcmp("\xff", "\xff"));
+	printf("Test 3 - ft_strcmp %d\n", ft_strcmp("\xff", "\xff"));
 	printf("\n\n");
 	printf("Test 4 - strcmp %d\n", strcmp(s3, s4));
 	printf("Test 4 - ft_strcmp %d\n", ft_strcmp(s3, s4));
@@ -94,13 +96,18 @@ void	ft_read_test(char **argc)
 	int		fd_one;
 	int		fd_two;
 	int		fd_three;
+	int		fd_four;
+	int		fd_five;
 	char	*buf_one = malloc(sizeof(char) * 50);
 	char	*buf_two = malloc(sizeof(char) * 50);
 	int		n;
+	int		error;
 
 	fd_one = open(argc[1], O_RDONLY);
 	fd_two = open(argc[2], O_RDONLY);
 	fd_three = open(argc[3], O_RDONLY);
+	fd_four = open(argc[1], O_RDONLY);
+	fd_five = open(argc[2], O_RDONLY);
 	n = 31;
 	printf("Test 1 -  read %zd\n", read(fd_one, buf_one, n));
 	printf("buffer    read = %s", buf_one);
@@ -109,28 +116,31 @@ void	ft_read_test(char **argc)
 	printf("\n\n");
 	printf("Test 2 -    read %zd\n", read(fd_three, buf_one, n));
 	printf("Test 2 - ft_read %d\n", ft_read(fd_three, buf_two, n));
-//	printf("\n\n");
-//	printf("Test 3 - read %s\n", read(""));
-//	printf("Test 3 - ft_read %s\n", ft_read(""));
+	error = errno;
+	printf("errno - %d - %s\n\n", error, strerror(error));
+	printf("Test 3 -  read %zd\n", read(fd_four, 0, n));
+	printf("Test 3 - ft_read %d\n", ft_read(fd_five, 0, n));
+	error = errno;
+	printf("errno - %d - %s\n", error, strerror(error));
 }
 
 void	ft_write_test(void)
 {
 	int		fd;
-	char	buf_one[] = "test string\n";
-	char	buf_two[] = "test string\n";
+	char	buf_one[] = "Test string met write\n";
+	char	buf_two[] = "Test string met write\n";
 	int		n;
+	int		error;
 
 	fd = 1;
-	n = 12;
+	n = 22;
 	printf("Test 1 - write %zd\n", write(fd, buf_one, n));
 	printf("Test 1 - ft_write %d\n", ft_write(fd, buf_two, n));
-//	printf("\n\n");
-//	printf("Test 2 - write %s\n", write("test2 met spatie"));
-//	printf("Test 2 - ft_write %s\n", ft_write("test2 met spatie"));
-//	printf("\n\n");
-//	printf("Test 3 - write %s\n", write(""));
-//	printf("Test 3 - ft_write %s\n", ft_write(""));
+	printf("\n\n");
+	printf("Test 2 - write %zd\n", write(fd, 0, n));
+	printf("Test 2 - ft_write %d\n", ft_write(fd, 0, n));
+	error = errno;
+	printf("errno - %d - %s\n", error, strerror(error));
 }
 
 int		main(int argv, char **argc)

@@ -6,20 +6,24 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:20 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/13 14:47:27 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/15 10:58:31 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ; ------------------------------------------------------------------------------
 ; char	*strcpy(char *dst, const char *src);
 ;
+; DESCRIPTION
 ; The stpcpy() functions copy the string src to dst (including the terminating
 ; `\0' character.)
+;
+; RETURN VALUE
+; The strcpy() function return dst.
 ;
 ; REGISTER	   -	 VARIABLE
 ;	rdi					dst
 ;	rsi					src
-;	rcx					position in the string
+;	rcx					position index in the string
 ;	dl					single char from string
 ; ------------------------------------------------------------------------------
 

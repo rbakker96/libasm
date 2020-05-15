@@ -6,21 +6,26 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:35 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/14 18:52:16 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/15 11:53:53 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ; ------------------------------------------------------------------------------
 ; ssize_t	write(int fildes, const void *buf, size_t nbyte);
 ;
+; DESCRIPTION
 ; write() attempts to write nbyte of data to the object referenced by the
 ; descriptor fildes from the buffer pointed to by buf.
 ;
+; RETURN VALUE
+; The write function returns the nbyte bytes written.
+;
 ; REGISTER	   -	 VARIABLE
-;	rax					syscall-read = 0x2000004
+;	rax					syscall-write = 0x2000004
 ;	rdi					fd
 ;	rsi					buffer
 ;	rdx					number of bytes to be written
+;	rdx					temp storage of errno
 ; ------------------------------------------------------------------------------
 
 global _ft_write
@@ -35,10 +40,10 @@ return:
 			ret
 
 error:
-			mov		rdx,rax
+			mov		rdx,rax					;save errno
 			push	rdx
-			call	___error
+			call	___error				;retrieve addres of global errno
 			pop		rdx
-			mov		[rax],rdx
-			mov		rax,-1				;return -1 with error
+			mov		[rax],rdx				;save errno on retrieved addres
+			mov		rax,-1					;return -1 with function
 			ret

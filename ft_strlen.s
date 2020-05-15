@@ -6,14 +6,19 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:30 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/12 20:04:12 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/15 10:56:31 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ; ------------------------------------------------------------------------------
 ; size_t	strlen(const char *string)
 ;
+; DESCRIPTION
 ; The strlen() function computes the length of the string s.
+;
+; RETURN VALUE
+; The strlen() function returns the number of characters that precede the
+; terminating NUL character.
 ;
 ; REGISTER	   -	 VARIABLE
 ;	rdi					string

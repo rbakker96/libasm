@@ -6,15 +6,21 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:14 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/12 20:03:26 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/15 11:00:07 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 ; ------------------------------------------------------------------------------
 ; int	strcmp(const char *s1, const char *s2);
 ;
+; DESCRIPTION
 ; The strcmp() and strncmp() functions lexicographically compare the null-
 ; terminated strings s1 and s2.
+;
+; RETURN VALUE
+; The strcmp() and strncmp() functions return an integer greater than, equal
+; to, or less than 0, according as the string s1 is greater than, equal to, or
+; less than the string s2.
 ;
 ; REGISTER	   -	 VARIABLE
 ;	rdi					s1
@@ -43,6 +49,6 @@ compare:
 			jmp		increment				;otherwise check next char
 
 return:
-			sub		rdx,rax					;calculate difference between s1 & s2
+			sub		rdx,rax					;calculate diff between s1 & s2
 			mov		rax,rdx					;move difference in return value
 			ret
