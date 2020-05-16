@@ -6,7 +6,7 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:07 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/15 12:22:51 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/16 14:27:44 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -33,12 +33,12 @@ extern ___error
 _ft_read:
 			mov		rax,0x2000003			;put syscall number in register
 			syscall
-			jc		fail					;jump if carry flag is set
+			jc		error					;jump if carry flag is set
 
 return:
 			ret
 
-fail:
+error:
 			mov		rdx,rax					;save errno
 			push	rdx
 			call	___error				;retrieve addres of global errno
