@@ -6,7 +6,7 @@
 ;    By: roybakker <roybakker@student.codam.nl>       +#+                      ;
 ;                                                    +#+                       ;
 ;    Created: 2020/05/06 10:55:20 by roybakker     #+#    #+#                  ;
-;    Updated: 2020/05/15 10:58:31 by roybakker     ########   odam.nl          ;
+;    Updated: 2020/05/16 14:08:38 by roybakker     ########   odam.nl          ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -28,7 +28,6 @@
 ; ------------------------------------------------------------------------------
 
 global _ft_strcpy
-extern _ft_strlen
 
 _ft_strcpy:
 			mov		rcx,0						;set ofset to zero
