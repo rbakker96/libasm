@@ -33,7 +33,7 @@ An assembly (or assembler) language, often abbreviated asm, is a low-level progr
 ---
 
 ### Usage
-> A main with test files are provided to show the functionality of the code, this is a preview ot main.c
+> A main with test files are provided to show the functionality of the code, this is a preview of main.c
 
 ```javascript
 int	main(int argv, char **argc)
