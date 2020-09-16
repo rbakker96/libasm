@@ -6,7 +6,7 @@
 /*   By: roybakker <roybakker@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/06 14:47:09 by roybakker     #+#    #+#                 */
-/*   Updated: 2020/05/15 11:40:27 by roybakker     ########   odam.nl         */
+/*   Updated: 2020/05/18 13:10:42 by roybakker     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ft_strlen_test(void)
 	printf("Test 1 - strlen %lu\n", strlen("test1"));
 	printf("Test 1 - ft_strlen %d\n", ft_strlen("test1"));
 	printf("\n\n");
-	printf("Test 2 - strlen %lu\n", strlen("test2 met spatie"));
-	printf("Test 2 - ft_strlen %d\n", ft_strlen("test2 met spatie"));
+	printf("Test 2 - strlen %lu\n", strlen("test2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatie"));
+	printf("Test 2 - ft_strlen %d\n", ft_strlen("test2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatie"));
 	printf("\n\n");
 	printf("Test 3 - strlen %lu\n", strlen(""));
 	printf("Test 3 - ft_strlen %d\n", ft_strlen(""));
@@ -42,14 +42,14 @@ void	ft_strlen_test(void)
 
 void	ft_strcpy_test(void)
 {
-	char	dst_one[30];
-	char	dst_two[30];
+	char	dst_one[250];
+	char	dst_two[250];
 
 	printf("Test 1 - strcpy %s\n", strcpy(dst_one, "test1"));
 	printf("Test 1 - ft_strcpy %s\n", ft_strcpy(dst_two, "test1"));
 	printf("\n\n");
-	printf("Test 2 - strcpy %s\n", strcpy(dst_one, "test2 met spaties"));
-	printf("Test 2 - ft_strcpy %s\n", ft_strcpy(dst_two, "test2 met spaties"));
+	printf("Test 2 - strcpy %s\n", strcpy(dst_one, "test2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatie"));
+	printf("Test 2 - ft_strcpy %s\n", ft_strcpy(dst_two, "test2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatie"));
 	printf("\n\n");
 	printf("Test 3 - strcpy %s\n", strcpy(dst_one, ""));
 	printf("Test 3 - ft_strcpy %s\n", ft_strcpy(dst_two, ""));
@@ -64,13 +64,13 @@ void	ft_strcmp_test(void)
 
 	s1 = "z";
 	s2 = "a";
-	s3 = "\xff";
-	s4 = "\xff";
-	printf("Test 1 - strcmp %d\n", strcmp("test1", "test1"));
-	printf("Test 1 - ft_strcmp %d\n", ft_strcmp("test1", "test1"));
+	s3 = "test1";
+	s4 = "test";
+	printf("Test 1 - strcmp %d\n", strcmp("", "hallo"));
+	printf("Test 1 - ft_strcmp %d\n", ft_strcmp("", "hallo"));
 	printf("\n\n");
-	printf("Test 2 - strcmp %d\n", strcmp(s1, s2));
-	printf("Test 2 - ft_strcmp %d\n", ft_strcmp(s1, s2));
+	printf("Test 2 - strcmp %d\n", strcmp("test1", ""));
+	printf("Test 2 - ft_strcmp %d\n", ft_strcmp("test1", ""));
 	printf("\n\n");
 	printf("Test 3 - strcmp %d\n", strcmp("\xff", "\xff"));
 	printf("Test 3 - ft_strcmp %d\n", ft_strcmp("\xff", "\xff"));
@@ -84,8 +84,8 @@ void	ft_strdup_test(void)
 	printf("Test 1 - strdup %s\n", strdup("test1"));
 	printf("Test 1 - ft_strdup %s\n", ft_strdup("test1"));
 	printf("\n\n");
-	printf("Test 2 - strdup %s\n", strdup("test2 met spatie"));
-	printf("Test 2 - ft_strdup %s\n", ft_strdup("test2 met spatie"));
+	printf("Test 2 - strdup %s\n", strdup("test2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatie"));
+	printf("Test 2 - ft_strdup %s\n", ft_strdup("test2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatietest2 met spatie"));
 	printf("\n\n");
 	printf("Test 3 - strdup %s\n", strdup(""));
 	printf("Test 3 - ft_strdup %s\n", ft_strdup(""));
